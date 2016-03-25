@@ -24,6 +24,11 @@ public class WordWrapTest {
         assertThat(wrap("hello", 5)).isEqualTo("hello");
     }
 
+    @Test
+    public void wrap_one_word_larger_than_width(){
+        assertThat(wrap("hello", 3)).isEqualTo("he\nllo");
+    }
+
     private String wrap(String hello, int width) {
         return hello;
     }

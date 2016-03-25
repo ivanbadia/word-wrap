@@ -15,7 +15,7 @@ public class WordWrap {
 
         String remainingText = text.substring(0, text.length() - length);
         String brokenWord = text.substring(text.length() - length, text.length());
-        return remainingText + BREAK_LINE + brokenWord;
+        return wrap(remainingText, length) + BREAK_LINE + brokenWord;
     }
 
     private boolean isShorterThanLength(String text, int length) {

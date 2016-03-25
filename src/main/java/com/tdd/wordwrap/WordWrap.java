@@ -14,8 +14,14 @@ public class WordWrap {
         }
 
         int indexOfBreak = text.length() - length;
-        String remainingText = text.substring(0, indexOfBreak);
+
         String brokenWord = text.substring(indexOfBreak, text.length());
+        if(brokenWord.indexOf(' ')!=-1){
+            indexOfBreak = indexOfBreak + brokenWord.indexOf(' ');
+            brokenWord = text.substring(indexOfBreak+1, text.length());
+        }
+
+        String remainingText = text.substring(0, indexOfBreak);
         return wrap(remainingText, length) + BREAK_LINE + brokenWord;
     }
 

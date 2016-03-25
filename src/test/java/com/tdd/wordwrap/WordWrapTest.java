@@ -41,4 +41,9 @@ public class WordWrapTest {
     public void wrap_one_word_when_its_broken_several_times(){
         assertThat(wordWrap.wrap("hello", 1)).isEqualTo("h\ne\nl\nl\no");
     }
+
+    @Test
+    public void wrap_sentence(){
+        assertThat(wordWrap.wrap("hello world", 7)).isEqualTo("hello\\nworld");
+    }
 }

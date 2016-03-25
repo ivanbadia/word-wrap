@@ -13,8 +13,9 @@ public class WordWrap {
             return text;
         }
 
-        String remainingText = text.substring(0, text.length() - length);
-        String brokenWord = text.substring(text.length() - length, text.length());
+        int indexOfBreak = text.length() - length;
+        String remainingText = text.substring(0, indexOfBreak);
+        String brokenWord = text.substring(indexOfBreak, text.length());
         return wrap(remainingText, length) + BREAK_LINE + brokenWord;
     }
 

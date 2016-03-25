@@ -45,5 +45,6 @@ public class WordWrapTest {
     @Test
     public void wrap_sentence(){
         assertThat(wordWrap.wrap("hello world", 7)).isEqualTo("hello\nworld");
+        assertThat(wordWrap.wrap("hello world today", 6)).isEqualTo("hello\nworld\ntoday");
     }
 }

@@ -29,7 +29,11 @@ public class WordWrapTest {
         assertThat(wrap("hello", 3)).isEqualTo("he\nllo");
     }
 
-    private String wrap(String hello, int width) {
-        return hello;
+    private String wrap(String text, int width) {
+        if(width>text.length()){
+            return text;
+        }
+
+        return text.substring(0, text.length()-width)+"\n"+text.substring(text.length()-width, text.length());
     }
 }

@@ -1,5 +1,9 @@
 package com.tdd.wordwrap;
 
+import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Created by Ivan on 25/03/2016.
  */
@@ -15,5 +19,12 @@ public class WordWrapTest {
      * hello world today, 6 -> hello\nworld\ntoday
      */
 
+    @Test
+    public void wrap_word_shorter_than_width(){
+        assertThat(wrap("hello", 5)).isEqualTo("hello");
+    }
 
+    private String wrap(String hello, int width) {
+        return "";
+    }
 }

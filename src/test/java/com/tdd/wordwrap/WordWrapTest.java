@@ -37,5 +37,8 @@ public class WordWrapTest {
         assertThat(wordWrap.wrap("hello", 3)).isEqualTo("he\nllo");
     }
 
-
+    @Test
+    public void wrap_one_word_when_its_broken_several_times(){
+        assertThat(wordWrap.wrap("hello", 1)).isEqualTo("h\ne\nl\nl\no");
+    }
 }

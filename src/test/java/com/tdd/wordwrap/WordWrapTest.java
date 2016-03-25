@@ -33,14 +33,11 @@ public class WordWrapTest {
     }
 
     @Test
-    public void wrap_one_word_larger_than_length(){
+    public void wrap_single_word_larger_than_length(){
         assertThat(wordWrap.wrap("hello", 3)).isEqualTo("he\nllo");
-    }
-
-    @Test
-    public void wrap_one_word_when_its_broken_several_times(){
         assertThat(wordWrap.wrap("hello", 1)).isEqualTo("h\ne\nl\nl\no");
     }
+
 
     @Test
     public void wrap_sentence(){

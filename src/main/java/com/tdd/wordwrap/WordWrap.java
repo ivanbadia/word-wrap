@@ -7,6 +7,7 @@ public class WordWrap {
 
 
     public static final String BREAK_LINE = "\n";
+    public static final char WHITE_SPACE = ' ';
 
     public String wrap(String text, int length) {
         if(isShorterThanLength(text, length)){
@@ -14,10 +15,10 @@ public class WordWrap {
         }
 
         int indexOfBreak = text.length() - length;
-
         String brokenWord = text.substring(indexOfBreak, text.length());
-        if(brokenWord.indexOf(' ')!=-1){
-            indexOfBreak = indexOfBreak + brokenWord.indexOf(' ');
+
+        if(hasWhiteSpace(brokenWord)){
+            indexOfBreak = indexOfWhiteSpace(indexOfBreak, brokenWord);
             brokenWord = text.substring(indexOfBreak+1, text.length());
         }
 
@@ -25,7 +26,15 @@ public class WordWrap {
         return wrap(remainingText, length) + BREAK_LINE + brokenWord;
     }
 
+    private int indexOfWhiteSpace(int indexOfBreak, String brokenWord) {
+        return indexOfBreak + brokenWord.indexOf(' ');
+    }
+
+    private boolean hasWhiteSpace(String brokenWord) {
+        return brokenWord.indexOf(WHITE_SPACE)!=-1;
+    }
+
     private boolean isShorterThanLength(String text, int length) {
-        return length>=text.length();
+        return text==null || length>=text.length();
     }
 }

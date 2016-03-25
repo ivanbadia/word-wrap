@@ -25,6 +25,6 @@ public class WordWrapTest {
     }
 
     private String wrap(String hello, int width) {
-        return "";
+        return hello;
     }
 }
